@@ -171,7 +171,7 @@ $max = $page*100;
             <div class="page">
             <?php 
             if($page==$_SESSION['nbreDePage']) {
-                for($i=0; $i<sizeof($_SESSION['inferieurs']); $i++)
+                for($i=$min; $i<sizeof($_SESSION['inferieurs']); $i++)
                 { 
 
                     echo '<div class="sorties">'.$_SESSION['inferieurs'][$i].'</div>' ;
