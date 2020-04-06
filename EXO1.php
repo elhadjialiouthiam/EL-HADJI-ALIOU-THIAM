@@ -197,7 +197,7 @@ $max = $page*100;
         <li>
         <p>Ceux superieurs à la moyenne sont représentés dans le tableau suivant: </p>
             <div class="page">
-            <?php 
+            <?php
             if($page==$_SESSION['nbreDePage']) {
                 for($i=$min; $i<sizeof($_SESSION['superieurs']); $i++)
                 { 
