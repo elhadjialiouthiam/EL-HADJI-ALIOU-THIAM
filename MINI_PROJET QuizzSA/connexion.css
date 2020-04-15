@@ -1,0 +1,78 @@
+header{
+    background-color:rgb(23, 57, 29);
+    width: 100%;
+    height: 80px;
+    text-decoration-color: white; 
+    padding-top: 10px;
+}
+header img{
+    width: 4%;
+    float: left;
+    margin-top: -0.5%;
+}
+header h2{
+    text-align: center;
+    color: white;
+    padding-top: -50px;
+}
+
+body{
+    padding: 0;
+    margin:0; 
+    background-image: url('Images/img-bg.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+.p1{
+    background-color:rgb(128, 208, 208);
+    height:80px;
+    width: 100%;
+    color:white;    
+}
+.p1 .smallheader{
+    padding-top: 30px;
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.p1 .smallheader span{
+    color: white;
+    margin-left: 265px;
+}
+.fieldset{
+    margin-top: 100px;
+    margin-left: 450px;
+    width: 30%;
+    height:300px;
+    background-color: white;
+}
+.p2 input{
+    height:40px;
+    width: 30%;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color:rgb(128, 208, 208);
+}
+.p2 p img{
+    float: right;
+    margin-top: 20px;
+}
+.p2 .input1 {
+    
+    height:40px;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 1px;
+   background-color:  rgba(185, 183, 183, 0.856);
+    background: white url(./Images/Icônes/ic-login.png) right no-repeat;
+   }
+.p2 .input2 {
+    height:40px;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 1px;
+   background-color:  rgba(185, 183, 183, 0.856);
+    background: white url(./Images/Icônes/ic-password.png) right no-repeat;
+}
