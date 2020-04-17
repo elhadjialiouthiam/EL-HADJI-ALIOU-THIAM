@@ -1,0 +1,148 @@
+header{
+    background-color:rgb(23, 57, 29);
+    width: 100%;
+    height: 80px;
+    text-decoration-color: white; 
+    padding-top: 10px;
+}
+header img{
+    width: 4%;
+    float: left;
+    margin-top: -0.5%;
+}
+header h2{
+    text-align: center;
+    color: white;
+    padding-top: -50px;
+}
+
+body{
+    padding: 0;
+    margin:0; 
+    background-image: url('Images/img-bg.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+.p1{
+    background-color:rgb(128, 208, 208);
+    height:80px;
+    width: 100%;
+    color:white;    
+}
+.p1 .smallheader{
+    margin-left: 500px;
+    font-size: 18px;
+    font-weight: bold;
+}
+a button{
+    margin-top: -25px;
+    float: right;
+    width: 150px ;
+    height: 50px;
+    background-color: green;
+}
+.fieldset{
+    margin-top: -10px;
+    margin-left: 30px;
+    width: 95%;
+    height:550px;
+    background-color: white;
+}
+.menu{
+    margin-top: 50px;
+    margin-left: 20px;
+    float: left;
+    width: 30%;
+    height: 350px;
+    background-color: ghostwhite;
+    border-radius: 5px;
+}
+.menu .avatar{
+    margin-left: 0px;
+    width: 100%;
+    height: 150px;
+    background-color: greenyellow;
+}
+.menu .avatar h2{
+    margin-left: 150px;
+}
+#wrapper{
+    text-align: center;
+}
+#output_image{
+    margin-top: -75px;
+    float: left;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+a{
+text-decoration: none;
+color: gray;
+}
+.list1{
+    list-style: none;
+    margin: 20px;
+}
+.list1 a img{
+    float: right;
+}
+.list2{
+    list-style: none;
+    margin: 20px;
+}
+.list2 a img{
+    float: right;
+}
+.list3{
+    list-style: none;
+    margin: 20px;
+}
+.list3 a img{
+    float: right;
+}
+.list4{
+    list-style: none;
+    margin: 20px;
+}
+.list4 a img{
+    float: right;
+}
+.fieldset1{
+    margin-top: -450px;
+    float: right;
+    margin-right: 100px;
+    width: 50%;
+    height:450px;
+    background-color: white;
+}
+.p3{
+    margin-left: 30px;
+    margin-top: -10px;
+}
+.p3 h4{
+    margin-top: 2px;
+}
+.p3 input{
+    margin-top: -50px;
+    height:20px;
+    width: 40%;
+    margin-right: 5%;
+    background-color: ghostwhite;
+    border-radius: 1px;
+}
+.p2 {
+    margin-top: -30px;
+    margin-left: 20px;
+}
+.p2 h4{
+    margin-top: -20px;
+}
+.valider{
+    height:40px;
+    width: 30%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: -15px;
+    background-color:rgb(128, 208, 208);
+} 

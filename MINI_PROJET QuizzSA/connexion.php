@@ -1,33 +1,39 @@
 <?php
+session_start();
+$error='';
    if(isset($_POST['connexion']))
    {
        $user=$_POST["user"];
        $mdp=$_POST["mdp"];
        $connexion=[];
+      
     $json=file_get_contents('connexion.json');
     $json=json_decode($json,true);
     $connexion=$json;
         for ($i=0; $i < Count($connexion); $i++) { 
-            if ($connexion[$i]['user1']==$user && $connexion[$i]['mdp1']==$mdp) {
-                $_SESSION["nom"]=$connexion[$i]['nom1'];
-                $_SESSION["prenom"]=$connexion[$i]['prenom1'];
-                $_SESSION["user"]=$connexion[$i]['user1'];
-                $_SESSION["mdp"]=$connexion[$i]['mdp1'];
-                $_SESSION["image"]=$connexion[$i]['image1'];
-                header('Location: accueilAdmin.php');
-            }elseif ($connexion[$i]['user2']==$user && $connexion[$i]['mdp2']==$mdp) {                
-                $_SESSION["nom"]=$connexion[$i]['nom2'];
-                $_SESSION["prenom"]=$connexion[$i]['prenom2'];
-                $_SESSION["user"]=$connexion[$i]['user2'];
-                $_SESSION["mdp"]=$connexion[$i]['mdp2'];
-                $_SESSION["image"]=$connexion[$i]['image2'];
-                header('Location: interfaceJoueur.php');
+            if ($connexion[$i]['user']==$user && $connexion[$i]['mdp']==$mdp) {
+                if($connexion[$i]['role']=='admin'){
+                    $_SESSION["nom"]=$connexion[$i]['nom'];
+                    $_SESSION["prenom"]=$connexion[$i]['prenom'];
+                    $_SESSION["user"]=$connexion[$i]['user'];
+                    $_SESSION["mdp"]=$connexion[$i]['mdp'];
+                    $_SESSION['image']=$connexion[$i]['image'];
+                    $donnée=[$_SESSION["nom"],$_SESSION['prenom'],$_SESSION["user"],$_SESSION["mdp"],$_SESSION['image']];
+                    header('Location: accueilAdmin.php');
+                }else{
+                    $_SESSION["nom"]=$connexion[$i]['nom'];
+                    $_SESSION["prenom"]=$connexion[$i]['prenom'];
+                    $_SESSION["user"]=$connexion[$i]['user'];
+                    $_SESSION["mdp"]=$connexion[$i]['mdp'];
+                    $_SESSION['image']=$connexion[$i]['image'];
+                    $donnée=[$_SESSION["nom"],$_SESSION['prenom'],$_SESSION["user"],$_SESSION["mdp"],$_SESSION['image']];
+                    header('Location: interfaceJoueur.php');
+                }
             }else {
-               
-                echo 'login or password wrong';
+                $error='login or password wrong';
             }
-        }
         }  
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,6 +59,9 @@
                     </p>
                     <p>
                         <input  class="input2" type="text" name="mdp" placeholder="PASSWORD" required="requered">                      
+                    </p>
+                    <p style="color: red; margin-left: 20px">
+                    <?php echo  $error  ?>                   
                     </p>
                     <p><input  type="submit" name="connexion" value="Connexion" />
                     <a href="insJoueur.php" style=" color: grey;text-decoration: none;">S'inscrire pour jouer?</a>
