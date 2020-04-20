@@ -23,10 +23,17 @@ body{
     background-repeat:no-repeat;
     background-size:cover;
 }
+.fieldset{
+    background-color:whitesmoke;
+    width: 99%;
+    margin-left: 0.5%;
+    height:550px ;
+    border-radius: 2%;
+}
 .p1{
     background-color:rgb(128, 208, 208);
     margin-top: -10px;
-    height:80px;
+    height:100px;
     width: 100%;
     color:white;    
 }
@@ -47,4 +54,23 @@ a button{
     width: 150px ;
     height: 50px;
     background-color: green;
+}
+.profil{
+    float: left;
+}
+.p2{
+    margin-top: 10px;
+    width: 98%;
+    height: 440px;
+    margin-left: 1%;
+    border-radius: 1%;
+    background-color: white;
+}
+.p2.question{
+    width: 170px;
+    height: 430px;
+    border-radius: 1%;
+    border-color: royalblue;
+    background-color: red;
+    
 }

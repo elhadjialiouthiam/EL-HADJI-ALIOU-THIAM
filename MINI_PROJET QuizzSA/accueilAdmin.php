@@ -1,11 +1,5 @@
 <?php
 session_start();
-$donnée=[$_SESSION["nom"],$_SESSION['prenom'],$_SESSION["user"],$_SESSION["mdp"],$_SESSION['image']];
-/*$json=file_get_contents('question.json');
-$json=json_decode($json,true);
-$json[]=$question;
-$json=json_encode($json);
-file_put_contents('question.json',$json);*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,10 +21,12 @@ file_put_contents('question.json',$json);*/
                 </div>
                 <div class="menu">
                     <div class="avatar">
-                        <h2>THIAM</h2>
-                        <h2>EL HADJI </h2>
+                        <div class="donnée">
+                        <?php echo "<br>".$_SESSION['prenom'];
+                        echo "<br><br>".$_SESSION['nom']; ?>
+                        </div>
                         <div id="wrapper">
-                            <img src="Images/Capture1.PNG" alt="" id="output_image">
+                            <img src="Images/" alt="" id="output_image">
                         </div>
                     </div>
                         <ul class="listemenu">
@@ -42,7 +38,7 @@ file_put_contents('question.json',$json);*/
                 </div>
                 <div class="fieldset1">
                     <div class="nbrequestion">
-                Nbre de question/Jeu <input class="nbre" type="nombre" name="nbre">
+                Nbre de question/Jeu <input class="nbre" value="5" type="nombre" name="nbre">
                 <button type="submit">OK</button>
                     </div>
                     <div class="question">

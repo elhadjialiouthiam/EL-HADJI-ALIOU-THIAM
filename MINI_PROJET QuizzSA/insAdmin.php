@@ -1,17 +1,31 @@
 <?php
-if (isset($_POST['valider'])) {
-    $inscription=[];
-    $inscription['nom']=$_POST['nom'];
-    $inscription['prenom']=$_POST['prenom'];
-    $inscription['user']=$_POST['user'];
-    $inscription['mdp']=$_POST['mdp'];
-    $inscription['image']=$_POST['image'];
-    $inscription['role']=$_POST['role'];
-    $json=file_get_contents('connexion.json');
-    $json=json_decode($json,true);
-    $json[]=$inscription;
-    $json=json_encode($json);
-    file_put_contents('connexion.json',$json);
+session_start();
+       $connexion=[]; 
+        $json=file_get_contents('connexion.json');
+        $json=json_decode($json,true);
+        $connexion=$json;
+if (isset($_POST['valider'])&& isset($_POST['prenom']) &&isset($_POST['nom'])&&isset($_POST['user'])&&isset($_POST['mdp'])&&isset($_POST['cmdp'])) {
+    for ($i=0; $i < Count($connexion); $i++){
+    if ($connexion[$i]['user']==$_POST['user']  ) {
+        echo "login ou mot de passe existe deja dans la base";
+    }else {
+            $inscription=[];
+            $inscription['nom']=$_POST['nom'];
+            $inscription['prenom']=$_POST['prenom'];
+            $inscription['user']=$_POST['user'];
+            $inscription['mdp']=$_POST['mdp'];
+            $inscription['image']=$_POST['image'];
+            $inscription['role']=$_POST['role'];
+            $connexion=[]; 
+            $json=file_get_contents('connexion.json');
+            $json=json_decode($json,true);
+            $connexion=$json;
+            $json[]=$inscription;
+            $json=json_encode($json);
+            file_put_contents('connexion.json',$json);
+            header('Location: connexion.php');
+        }
+}
 }
 ?>
 <!DOCTYPE html>
@@ -34,10 +48,12 @@ if (isset($_POST['valider'])) {
                 </div>
                 <div class="menu">
                     <div class="avatar">
-                        <h2>THIAM</h2>
-                        <h2>EL HADJI </h2>
+                    <div class="donnée">
+                        <?php echo "<br>".$_SESSION['prenom'];
+                        echo "<br><br>".$_SESSION['nom']; ?>
+                        </div>
                         <div id="wrapper">
-                            <img src="Images/Screenshot_20190317-231913.png" alt="" id="output_image">
+                            <img src="<?="./".$_SESSION['image']; ?>" alt="" id="output_image">
                         </div>
 
                     </div>
@@ -55,21 +71,27 @@ if (isset($_POST['valider'])) {
                 <h4>Pour proposer de Quizz </h4>
             </div>
                 <div class="p3">
-                        <h4>Prenom </h4>
-                    <input type="text" name='nom' required="requered">
-                        <h4>Nom</h4>
-                        <input type="text" name='prenom' required="requered">
-                        <h4>Login</h4>
-                        <input type="text" name='user' required="requered" >
-                        <h4>Password</h4>
-                        <input type="text" name="mdp" required="requered" >
-                        <h4>Comfirmer Password</h4>
-                        <input type="text" name="mdp" required="requered" >
-                        <input type="hidden" name="role" value="admin">
+                        <h4>Prenom<span style="color: red">*</span> </h4>
+                    <input type="text" name='prenom' id="prenom" onkeyup="validPrenom()"><br/>
+                    <span id="prenominf" style="color: red"></span>
+                        <h4>Nom <span style="color: red">*</span></h4>
+                        <input type="text" name='nom' id ="nom" onkeyup="validNom()"><br/>
+                        <span id="nominf" style="color: red"></span>
+                        <h4>Login <span style="color: red">*</span></h4>
+                        <input type="text" name='user' required="requered" id="login" onkeyup="validLogin()"><br/>
+                        <span id="logininf" style="color: red"></span>
+                        <h4>Password <span style="color: red">*</span></h4>
+                        <input type="text" name="mdp" required="requered" id="mdp" onkeyup="validMdp()"><br/>
+                        <span id="mdpinf" style="color: red"></span>
+                        <h4>Comfirmer Password <span style="color: red">*</span></h4>
+                        <input type="text" name="cmdp" required="requered" id="cmdp" onkeyup="validCmdp()"><br/>
+                        <span id="cmdpinf" style="color: red"></span>
+                    <input type="hidden" name="role" value="admin">
                 </div>
                     <p class="ava"> Avatar <input accept="image/*" name="image" class="avatar" type="file"></p>
                     <p><button class="valider" type="submit" name="valider">Créer compte</button></p>
             </div>
        </form>
 </body>
+<script type="text/javascript" src="insjour.js"></script>
 </html>

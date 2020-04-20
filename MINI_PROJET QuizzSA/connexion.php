@@ -18,7 +18,6 @@ $error='';
                     $_SESSION["user"]=$connexion[$i]['user'];
                     $_SESSION["mdp"]=$connexion[$i]['mdp'];
                     $_SESSION['image']=$connexion[$i]['image'];
-                    $donnée=[$_SESSION["nom"],$_SESSION['prenom'],$_SESSION["user"],$_SESSION["mdp"],$_SESSION['image']];
                     header('Location: accueilAdmin.php');
                 }else{
                     $_SESSION["nom"]=$connexion[$i]['nom'];
@@ -26,7 +25,6 @@ $error='';
                     $_SESSION["user"]=$connexion[$i]['user'];
                     $_SESSION["mdp"]=$connexion[$i]['mdp'];
                     $_SESSION['image']=$connexion[$i]['image'];
-                    $donnée=[$_SESSION["nom"],$_SESSION['prenom'],$_SESSION["user"],$_SESSION["mdp"],$_SESSION['image']];
                     header('Location: interfaceJoueur.php');
                 }
             }else {
@@ -48,7 +46,7 @@ $error='';
         <img src="Images\logo-QuizzSA.png" alt="logo">
         <h2>Le plaisir de jouer</h2>
     </header>
-        <form action="" method="POST">
+        <form action="" method="POST" >
             <div class="fieldset">
                 <div class="p1">
                     <p class="smallheader">Login form  <span class="close">X</span></p>                 

@@ -1,6 +1,13 @@
 <?php
 session_start();
-$donnée=[$_SESSION["nom"],$_SESSION['prenom'],$_SESSION["user"],$_SESSION["mdp"],$_SESSION['image']];
+$liste=[]; 
+$liste=[$_SESSION['prenom'],$_SESSION['nom'],$_SESSION['score']];
+$json=file_get_contents('joueur.json');
+$json=json_decode($json,true);
+$liste=$json;
+$json[]=$liste;
+$json=json_encode($json);
+file_put_contents('joueur.json',$json);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,10 +25,22 @@ $donnée=[$_SESSION["nom"],$_SESSION['prenom'],$_SESSION["user"],$_SESSION["mdp"
     <form action="" method="POST">
             <div class="fieldset">
                 <div class="p1">
-                    <div class="profil"></div>
+                    <div class="profil">
+                    <?php
+                        echo "<br><br><br><br>".$_SESSION['nom'];echo " ".$_SESSION['prenom']; ?>   
+                    </div>
                     <p class="smallheader"><h3> BIENVENUE SUR LA PLATEFORME DE JEU DE QUIZZ</h3>
-                                   <h3> JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE</h3></p> 
+                                   <h3> JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE</h3>
+                                </p> 
                     <a href="deconnexion.php"><button>Déconnexion   </button></a>                
+                </div>
+                <div class="p2">
+                    <div class="question">
+
+                    </div>
+                    <div class="score">
+
+                    </div>
                 </div>
             </div>
        </form>
