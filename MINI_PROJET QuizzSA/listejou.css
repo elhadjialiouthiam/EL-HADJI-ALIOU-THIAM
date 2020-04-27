@@ -39,7 +39,7 @@ body{
     color: white;
     margin-left: 265px;
 }
-a button{
+.deconnexion{
     margin-top: -50px;
     float: right;
     width: 150px ;
@@ -130,9 +130,15 @@ color: gray;
 .score{
     margin-top: 10px;
     margin-left: 20px;
-    width: 90%;
-    height:350px;
+    width: 65%;
+    height:390px;
     color: gray;
-    border: blue solid;
+    border: blue solid 1px;
     border-radius: 2%;
+}
+button{
+    float: right;
+        height:20px ;
+        width: 30%;
+        background-color: green;
 }

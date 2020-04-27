@@ -17,16 +17,17 @@ session_start();
     <form action="" method="POST">
             <div class="fieldset">
                 <div class="p1">
-                    <p class="smallheader">CRÉER ET PARAMÉRTER VOS QUIZZ</p> <a href="deconnexion.php"><button>Déconnexion</button></a>                
+                    <p class="smallheader">CRÉER ET PARAMÉRTER VOS QUIZZ</p><button class="deconnexion"> <a href="deconnexion.php"> Déconnexion</a></button>              
                 </div>
                 <div class="menu">
                     <div class="avatar">
                         <div class="donnée">
                         <?php echo "<br>".$_SESSION['prenom'];
-                        echo "<br><br>".$_SESSION['nom']; ?>
+                        echo "<br><br>".$_SESSION['nom']; 
+                        $image=$_SESSION['image'];?>
                         </div>
                         <div id="wrapper">
-                            <img src="Images/" alt="" id="output_image">
+                            <img src= "images/<?=$image;?>" alt="" id='output_image'>
                         </div>
                     </div>
                         <ul class="listemenu">
@@ -48,7 +49,7 @@ session_start();
                    <br> <input type="checkbox" name="" id="">JAVA
                    <br>2. D’où vient le Corona?
                    <br><input type="radio" name="" id="">Italie
-                   <br><input type="radio" name="" id="">Chhine
+                   <br><input type="radio" name="" id="">Chine
                    <br>3. Quel terme définit langage qui s’adapte sur
                    <br> Androïd et sur Ios?
                    <br><input type="text" name="" id="">
@@ -61,7 +62,16 @@ session_start();
                    <br><input type="radio" name="" id="">CIA-FB
                     </div>
                     <div class="pagination">
-                        <button>SUIVANT</button>
+                        <?php
+                        $question=[];
+                         $totalValeur=count($question);
+                        $nombreparpage=5;
+                        $nombredepage=ceil($totalValeur/$nombreparpage);
+                        for ($i=1; $i <$nombredepage ; $i++) { 
+                            echo '<a href="accueilAdmin.php?page='.$i.'">'.$i.'</a>';
+                        }
+                        ?>
+                        <button value=<?=$i?>>SUIVANT</button>
                    </div>
                 </div>
             </div>

@@ -34,7 +34,7 @@ body{
     font-size: 18px;
     font-weight: bold;
 }
-a button{
+.deconnexion{
     margin-top: -25px;
     float: right;
     width: 150px ;

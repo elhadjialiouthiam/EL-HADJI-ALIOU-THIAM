@@ -44,7 +44,7 @@ if (isset($_POST['valider'])&& isset($_POST['prenom']) &&isset($_POST['nom'])&&i
     <form action="" method="POST">
             <div class="fieldset">
                 <div class="p1">
-                    <p class="smallheader">CRÉER ET PARAMÉRTER VOS QUIZZ</p><a href="deconnexion.php"><button type="reset">Déconnexion</button></a>                 
+                    <p class="smallheader">CRÉER ET PARAMÉRTER VOS QUIZZ</p><button class="deconnexion"> <a href="deconnexion.php"> Déconnexion</a></button>                 
                 </div>
                 <div class="menu">
                     <div class="avatar">

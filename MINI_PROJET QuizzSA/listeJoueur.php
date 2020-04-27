@@ -1,10 +1,5 @@
 <?php
 session_start();
-$liste=[];   
-$json=file_get_contents('joueur.json');
-$json=json_decode($json,true);
-$liste=$json;
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +17,7 @@ $liste=$json;
     <form action="" method="POST">
             <div class="fieldset">
                 <div class="p1">
-                    <p class="smallheader">CRÉER ET PARAMÉRTER VOS QUIZZ</p> <a href="deconnexion.php"><button>Déconnexion</button></a>                
+                    <p class="smallheader">CRÉER ET PARAMÉRTER VOS QUIZZ</p> <button class="deconnexion"> <a href="deconnexion.php"> Déconnexion</a></button>                
                 </div>
                 <div class="menu">
                     <div class="avatar">
@@ -55,15 +50,26 @@ $liste=$json;
                         </thead>
                         <tbody>
                         <?php
-                        for ($i=0; $i < count($liste); $i++) { 
+                        $liste=[];   
+                        $json=file_get_contents('joueur.json');
+                        $json=json_decode($json,true);
+                        $liste=$json;
+                        $totalValeur=count($liste);
+                        $nombreparpage=15;
+                        $nombredepage=ceil($totalValeur/$nombreparpage);
+                        for ($i=1; $i <$nombredepage ; $i++) { 
+                            echo '<a href="listejoueur.php?page='.$i.'">'.$i.'<button value='.$i.'>SUIVANT</button></a>';
+                        }
+                        $indicededepart=0;
+                        $page=1;
+                        $indicedefin=($page)*$nombreparpage;
+                        for ($i=$indicededepart; $i < $indicedefin; $i++) {
                             echo ' <tr>';
                             echo "<td>".$liste[$i]['prenom']."</td>";
                             echo "<td>".$liste[$i]['nom']."</td>";
                             echo "<td>".$liste[$i]['score']." pts </td>";
-                           
                             echo ' </tr>';
-                         }
-                            
+                        }
                         ?>
                         </tbody>
                     </table>

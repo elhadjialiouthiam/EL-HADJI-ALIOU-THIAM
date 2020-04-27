@@ -48,11 +48,12 @@ body{
     margin-left:500px;
     margin-top: -20px;
 }
-a button{
+.deconnexion{
     margin-top: -70px;
     float: right;
     width: 150px ;
     height: 50px;
+    text-decoration: none ;
     background-color: green;
 }
 .profil{
@@ -66,11 +67,31 @@ a button{
     border-radius: 1%;
     background-color: white;
 }
-.p2.question{
-    width: 170px;
+.question{
+    width: 75%;
     height: 430px;
     border-radius: 1%;
-    border-color: royalblue;
-    background-color: red;
+    border: indigo solid 1px;
     
+}
+.score{
+    margin-top: -430px;
+    width: 20%;
+    height: 430px;
+    float: right;
+    border: gray solid 1px;
+}
+.sui{
+    margin-top: 10px;
+    float: right;
+    height: 25px;
+    width: 100px;
+    background-color: greenyellow;
+}
+.pre{
+    margin-top: 10px;
+    float: left;
+    height: 25px;
+    width: 100px;
+    background-color: grey;
 }

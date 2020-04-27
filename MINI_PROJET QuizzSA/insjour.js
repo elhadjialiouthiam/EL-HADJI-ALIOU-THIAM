@@ -21,7 +21,10 @@ let passwordinf = document.querySelector("#mdpinf");
 
 let cpassword = document.querySelector("#cmdp");
 let cpasswordinf = document.querySelector("#cmdpinf");
+
 let btnSumbmit = document.querySelector("#btnSumbmit");
+
+
 
 function validPrenom() {  
     if (prenom.value === "") {
@@ -48,3 +51,10 @@ function validCmdp() {
         cpasswordinf.innerHTML = "champ obligatoire"
     } 
 }   
+
+
+
+
+
+
+
