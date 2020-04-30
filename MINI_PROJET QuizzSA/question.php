@@ -1,13 +1,35 @@
-<?php
+<?php 
 session_start();
-$question=[]; 
-$creerquestion=[];
-$json=file_get_contents('question.json');
-$json=json_decode($json,true);
-$question=$json;
-$json[]=$creerquestion;  
-$json=json_encode($json);
-file_put_contents('question.json',$json);
+    if(isset($_POST[Enregistrer])){
+
+        $Erreur=array();
+        if (!empty($_POST['quest']) && !empty($_POST['score'])) {
+            if ($_POST['score']>1) {
+                $creerquestion=[];
+                $creerquestion['question']=$_POST['quest'];
+                $creerquestion['score']=$_POST['score'];
+                $creerquestion['choix']=$_POST['choix'];
+                $creerquestion['rep']=$_POST['rep'];
+                $creerquestion['reponse']=array($_POST['reponse']);
+                $creerquestion['vraixreponse']=array($_POST['vraixreponse']);
+                $json=file_get_contents('question.json');
+                $json=json_decode($json,true);
+                $question=$json;
+                $json[]=$creerquestion;  
+                $json=json_encode($json);
+                file_put_contents('question.json',$json);
+            }
+
+        }else {
+            $Erreur[]="Ce champ est obligatoire";  
+        }
+
+        foreach($Erreur as $Error){
+
+            echo "<h4>".$Error."</h4>";
+
+        }   
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,67 +70,79 @@ file_put_contents('question.json',$json);
                     <DIV class="smallheader">
                         <h2>PARAMETRER VOTRE QUESTION</h2>
                     </DIV>
+                    <form action="" method="POST">
                     <div class="parametre">
-                    Questions <input id="question" onclick="question" onkeyup="validQuestion()" style="width: 400px; height: 70px;" type="text">
+                    Questions <input name="quest" id="question" onclick="question" onkeyup="validQuestion()" style="width: 400px; height: 70px;" type="text">
                     <span id="questioninf" style="color: red"></span>
-                    <br><br><br>Nbre de Points <input id="score" onclick="score" onkeyup="validScore()" style="width: 30px;" type="number"  >
+                    <br><br>Nbre de Points <input name="score" id="score" onclick="score" onkeyup="validScore()" style="width: 30px;" type="number"  >
                     <span id="scoreinf" style="color: red"></span>
-                    <br><br><br>Type de réponse
-                     <select style="width: 300px;height:40px"  id="typereponse" onclick="choix(this.value)" onkeyup="validTypereponse()">
-                    <option value="">Donnez le type de réponse</option>
-                    <option value="simple">Réponse à choix multiples (avec une seule réponse possible)</option>
-                    <option value="multiple">Réponse à choix multiples (avec plusieurs réponse possibles)</option>
-                    <option value="text" >Réponse  texte à saisir</option>
-                    </select> <img src="Images/Icônes/ic-ajout-réponse.png" onclick="add()" alt="" >
+                    <br>Type de réponse
+                     <select name="choix" style="width: 300px;height:40px"  id="typereponse" onclick="choix(this.value)" onkeyup="validTypereponse()">
+                     <span id="typereponseinf" style="color: red"></span>
+                     <option value="">Donnez le type de réponse</option>
+                    <option name="radio" value="simple">Réponse à choix multiples (avec une seule réponse possible)</option>
+                    <option name="chexbox" value="multiple">Réponse à choix multiples (avec plusieurs réponse possibles)</option>
+                    <option name="text" value="text" >Réponse  texte à saisir</option>
+                    </select> <img style="" src="Images/Icônes/ic-ajout-réponse.png" onclick="add()" alt="" >
                     <br><br><br>
                      
                      <div id="inputs"> 
-                     </div>  
+                     </div > 
+                     <button name="Enregistrer" type="submit">Enregistrer</button>
+                     </form> 
                     <script type="text/javascript" >
-
-                        function addIputSimple() {
+                                var i=1;
+                                var j=1;
+                        function addInputSimple() {
 
                             var divInputs = document.getElementById("inputs");
                             var newInput = document.createElement("div");
-                            newInput.innerHTML = `<input class="input-reponse" type="texte" name="rep" id="texte">
-                            <input type="radio" name="simple" id="simple">`;
+                            newInput.innerHTML = `<br><input style="width: 200px;height:30px" class="input-reponse" type="texte" name="reponse[${i}]" id="texte">
+                            <input name="vraixreponse[${i}]"  type="radio" name="simple" id="simple"><img src="Images/Icônes/ic-supprimer.png" alt="">`;
                             divInputs.appendChild(newInput);
+                            i++;
                         }
 
                         function addInput() {
 
                             var divInputs = document.getElementById("inputs");
                             var newInput = document.createElement("div");
-                            newInput.innerHTML = `<input class="input-reponse" type="texte" name="rep" id="texte">`;
+                            newInput.innerHTML = `<br><input style="width: 200px;height:30px" class="input-reponse" type="texte" name="rep" id="texte"><img src="Images/Icônes/ic-supprimer.png" alt="">`;
                             divInputs.appendChild(newInput);
                             }
 
-                        function addIputMultiple() {
+
+                        function addInputMultiple() {
 
                             var divInputs = document.getElementById("inputs");
                             var newInput = document.createElement("div");
-                            newInput.innerHTML = `<input class="input-reponse" type="texte" name="rep" id="texte">
-                            <input type="checkbox" name="simple" id="simple">`;
+                            newInput.innerHTML = `<br><input style="width: 200px;height:30px" class="input-reponse" type="texte" name="reponse[${j}]" id="texte">
+                            <input type="checkbox" name="vraixreponse[${j}]" id="simple"><img src="Images/Icônes/ic-supprimer.png" alt="">`;
                             divInputs.appendChild(newInput);
+                            j++;
 
                             }
 
                         function add(){
-                            var type = document.getElementById("typereponse");
-                            if (type.value == 'multiple') {
-                            return addIputMultiple();
-                            } else if (type.value == 'simple') {
-                            return addIputSimple();
-                            } else {
-                            return addInput();
-                            }
-                            }
+
+                                    var type = document.getElementById("typereponse");
+                                    if (type.value == 'multiple') {
+                                    return addInputMultiple();
+                                    } else if (type.value == 'simple') {
+                                    return addInputSimple();
+                                    } else {
+                                    return addInput();
+                                    }
+                                }
 
                         let question = document.querySelector("#question");
                         let questioninf = document.querySelector("#questioninf");
                                 
                         let score = document.querySelector("#score");
                         let scoreinf = document.querySelector("#scoreinf");
+
+                        let typereponse = document.querySelector("#typereponse");
+                        let typereponseinf = document.querySelector("#typereponseinf");
 
                         function validQuestion() {  
                                 if (question.value === "") {
@@ -118,6 +152,11 @@ file_put_contents('question.json',$json);
                         function validScore() {  
                                 if (score.value === "") {
                                     scoreinf.innerHTML = "champ obligatoire"
+                                }
+                            }
+                        function validTypereponse() {  
+                                if (typereponse.value === "") {
+                                    typereponseinf.innerHTML = "champ obligatoire"
                                 }
                             }
                     </script>
