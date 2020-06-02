@@ -17,6 +17,12 @@
             <h1 class="text-center mt-4 mb-0">LE PLAISIR DE JOUER</h1>
             </div>
         </div>
+        <div class="row ">
+            <div class="col-sm-12 " style="background-color:#C4C4C4;">
+            <h1 class="text-center">S'INSCRIRE</h1>
+            <h2 class="text-center"> Pour tester votre niveau de culture générale</h2>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-3 bg-white" >
                 <img alt="" id="output"/>
@@ -52,5 +58,5 @@
         </div>
     </div>
 </body>
-<script type="text/javascript" src="../script.js"></script>
+
 </html>

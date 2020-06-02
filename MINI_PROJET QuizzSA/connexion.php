@@ -59,8 +59,7 @@ $error='';
                         <input  class="input2" type="text" name="mdp" placeholder="PASSWORD" required="requered">                      
                     </p>
                     <p style="color: red; margin-left: 20px">
-                    <?php echo  $error  ?>                   
-                    </p>
+                    <?php echo  $error  ?>  </p>
                     <p><input  type="submit" name="connexion" value="Connexion" />
                     <a href="insJoueur.php" style=" color: grey;text-decoration: none;">S'inscrire pour jouer?</a>
                     </p>

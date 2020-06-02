@@ -11,24 +11,7 @@ require('db_connect.php');
                 $result = $query->fetch();
     
                   header('Location: Admin/admin.php');
-    
-	//Nous allons demander le hash pour cet utilisateur à notre base de données :
-	/*$query = $pdo->prepare('SELECT password FROM Admin WHERE login = :login');
-	$query->bindParam(':login', $_POST["login"]);
-	$query->execute();
-	$result = $query->fetch();
-	$hash = $result[0];
-	
-	//Nous vérifions si le mot de passe utilisé correspond bien à ce hash à l'aide de password_verify :
-	$correctPassword = password_verify($_POST["mdp"], $hash);
-	
-	if($correctPassword){
-		//Si oui nous accueillons l'utilisateur identifié
-		echo "Bienvenu ".$_POST["login"];
-	}else{
-		//Sinon nous signalons une erreur d'identifiant ou de mot de passe
-		echo "login/password incorrect";
-    }*/
+
 }else echo "login ou password incorrect";
 //}
 ?>
@@ -40,7 +23,6 @@ require('db_connect.php');
     <link rel="stylesheet" href="style/Style.css">
     <title>Document</title>
 </head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <body>
     <form action="" method="POST" >
     <div class='container'>

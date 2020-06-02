@@ -8,7 +8,6 @@ var loadFile = function(event) {
   
 let prenom = document.querySelector("#prenom");
 let prenominf = document.querySelector("#prenominf");
-console.log(prenom);
 
 let nom = document.querySelector("#nom");
 let nominf = document.querySelector("#nominf");
@@ -51,3 +50,14 @@ function validCmdp() {
         cpasswordinf.innerHTML = "champ obligatoire"
     } 
 }
+
+let validationServer = document.querySelector("#validationServer");
+let validationServerinf = document.querySelector("#validationServerinf");
+
+function validQuestion() {  
+    if (validationServer.value === "") {
+
+        validationServerinf.classList.add("is-invalid")
+    }
+}
+

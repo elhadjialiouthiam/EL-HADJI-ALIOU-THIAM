@@ -19,7 +19,7 @@
         </div>
         <div class="row ">
             <div class="col-sm-12 " style="background-color:#C4C4C4;">
-            <h1 class="text-center">CRÉER ET PARAMÉRTER VOS QUIZZ</h1>
+            <h2 class="text-center">CRÉER ET PARAMÉRTER VOS QUIZZ</h2>
             </div>
         </div>
         <div class="row">
@@ -45,10 +45,31 @@
                 </div>
             </div>
             <div class="col-sm-9 bg-white">
-                
+                <div class="container">
+                    <h2>PARAMETRER VOS QUESTION</h2>
+                    <form action="" method="POST" class="form-group mt-3">
+                        Questions
+                        <input class="" id="validationServer" onkeyup="validQuestion()" name="question"  type="text">
+                        <span id="validationServerinf"></span>
+                        <br><br><br>
+                        Nbre de Points 
+                        <input class=" "  name="score" id="score" type="number"  >
+                        <br><br><br>
+                        Type de réponse
+                        <select name="choix" id="typereponse">
+                            <option >Donnez le type de réponse</option>
+                            <option name="radio" value="simple">Réponse à choix multiples (avec une seule réponse possible)</option>
+                            <option name="chexbox" value="multiple">Réponse à choix multiples (avec plusieurs réponse possibles)</option>
+                            <option name="text" value="text" >Réponse  texte à saisir</option>
+                        </select> <img src="../style/Images/Icônes/ic-ajout-réponse.png" alt="" >
+                        <br><br><br>
+                        <button class="btn btn-success mb-3" name="Enregistrer" type="submit">Enregistrer</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </body>
-<script type="text/javascript" src="../script.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/script.js"></script>
 </html>
