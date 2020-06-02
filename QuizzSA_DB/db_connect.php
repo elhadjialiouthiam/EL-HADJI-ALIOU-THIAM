@@ -1,12 +1,17 @@
 <?php
-    if(isset($_POST['user']) && isset($_POST['mdp']))
-    {
-        // connexion à la base de données
-        $db_username = 'Ass';
-        $db_password = 'Ass97';
-        $db_name     = 'Quizz_SA';
-        $db_host     = 'localhost';
-        $db = mysqli_connect($db_host, $db_username, $db_password,$db_name);
-    }
-    mysqli_close($db); // fermer la connexion
+     // connexion à la base de données
+     $db_username = 'Ass';
+     $db_password = 'Ass97';
+     $db_name     = 'Quizz_SA';
+     $db_host     = 'localhost';
+
+     try {
+        $pdo = new PDO("mysql:host=$db_host;dbname=$db_name", $db_username, $db_password);
+        // set the PDO error mode to exception
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        //echo "Connected successfully";
+      } catch(PDOException $e) {
+        //echo "Connection failed: " . $e->getMessage();
+      }
 ?>
