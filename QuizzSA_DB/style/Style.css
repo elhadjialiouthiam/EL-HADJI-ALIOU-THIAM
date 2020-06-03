@@ -3,88 +3,6 @@ body{
     background: url(Images/points-interrogation-noirs-gras-cartes-papier_124595-3.jpg) ;
     background-size:cover;
 }
-.contenu{
-    position: absolute;
-    margin-top: 8%;
-    margin-left: 20%;
-    background-color: gray;
-    height: 60%;
-    width: 39%;
-}
-.contenu h1{
-    margin-top: 40px;
-    text-align: center;
-}
-.login_form{
-    margin-left: 25%;
-    margin-top: -12%;
-}
-.logo{
-   position: absolute;
-    width: 150px;
-    height: 250px;
-    margin-top: -2%;
-    background-repeat:no-repeat;
-    background: url(Images/logo-QuizzSA.png);
-    background-size:cover;
-}
-.logoJr{
-    
-   
-    background-repeat:no-repeat;
-    background: url(Images/logo-QuizzSA.png);
-    background-size:cover;
-}
-.login{
-    margin-top: 35%;
-    margin-right: 5%;
-}
-.p2 input{
-    height:40px;
-    width: 135px;
-    margin-left: 5%;
-    margin-right: 5%;
-    background: #56CCF2;
-}
-.p1 .input1 {
-    height:40px;
-    width: 300px;
-    margin-left: 5%;
-    margin-right: 5%;
-    border-radius: 1px;
-   background-color:  rgba(185, 183, 183, 0.856);
-    background: white url(./Images/Icônes/ic-login.png) right no-repeat;
-   }
-.p1 .input2 {
-    height:40px;
-    width: 300px;
-    margin-left: 5%;
-    margin-right: 5%;
-    border-radius: 1px;
-   background-color:  rgba(185, 183, 183, 0.856);
-    background: white url(./Images/Icônes/ic-password.png) right no-repeat;
-}
-.p2 a{
-    color: black;
-    text-decoration: none;
-    margin-right: 50px;
-}
-.header{
-    background-color: rgba(155, 81, 224, 0.9);
-    text-align: center;
-    width:97% ;
-    float: right;
-    margin-top: -3%;
-}
-.logo_admin{
-    background-image: url(style/Images/logo-QuizzSA.png);
-}
-.affiche{
-    background-color: white;
-}
-.page{
-    margin-top:3%;
-}
 #output{
     margin-right: 50px;
     margin-top: -400px;
@@ -93,7 +11,6 @@ body{
     height: 200px;
     border-radius: 50%;
 }
-
 .ava{
     margin-left: 30px;
 }

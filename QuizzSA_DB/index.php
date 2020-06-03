@@ -1,57 +1,29 @@
 <?php
 session_start();
-require('db_connect.php');
-//Nous vérifions que l'utilisateur a bien envoyé les informations demandées 
-//if(isset($_POST["login"]) && isset($_POST["mdp"])){
-    if (isset($_POST['connexion'])) {
-            $login = $_POST['login'];
-            $mdp = $_POST['mdp'];
-                $query = $pdo->prepare("SELECT * FROM Admin WHERE login='$login' AND password='$mdp'");
-                $query->execute();
-                $result = $query->fetch();
-    
-                  header('Location: Admin/admin.php');
-
-}else echo "login ou password incorrect";
-//}
+require('data/connection($login,$pwd).php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Page connexion</title>
     <link rel="stylesheet" href="style/bootstrap.min.css">
-    <link rel="stylesheet" href="style/Style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="style/connexion.css">
 </head>
-<body>
-    <form action="" method="POST" >
-    <div class='container'>
-        <div class='contenu'>
-            <div class='text'>
-                <h1>LE PLAISIR DE JOUER</h1>
+<body class="text-center">
+        <form action="" method="POST" class="form-signin  " style="background-color: #f5f5f5;" >
+            <div class="alert alert-danger">
+                <?php echo $msg ?>
             </div>
-            <div class='logo' >
-            </div>
-            <div class='login_form'>
-                <div class='login'>
-                    <div class='p1'>
-                        <p> 
-                            <input  class="input1"  type="username" name="login" placeholder="LOGING" required="requered" id="login" onkeyup="validLogin()">
-                            <span id="logininf" style="color: red"></span>
-                        </p>
-                        <p>
-                            <input  class="input2" type="password" name="mdp" placeholder="PASSWORD" required="requered" id="mdp" onkeyup="validMdp()">
-                            <span id="mdpinf" style="color: red"></span>
-                        </p>
-                    </div>
-                    <div class='p2'>
-                        <input  type="submit" name="connexion" value="Connexion"/>
-                        <a href="Joueur/insJoueur.php">S'inscrire pour jouer?</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </form>
+            <img src="style/Images/logo-QuizzSA.png" alt="" width="75" height="82">
+            <h1 class="h3 mb-4 font-weight-normal ">LE PLAISIR DE JOUER</h1>
+            <label for="inputLogin" class="float-left">Login</label>
+            <input type="login" name="login" id="inputLogin" class="form-control mt-3" placeholder="Login" required >
+            <label for="inputPassword" class="float-left">Password</label>
+            <input type="password" name="mdp" id="inputPassword" class="form-control mt-3" placeholder="Password" required>
+            <button  type="submit"class="btn btn-lg btn-primary btn-block" name="Connexion">Connexion</button>
+            <a class="" href="Joueur/insJoueur.php">S'inscrire pour jouer?</a>
+        </form>
 </body>
 </html>
