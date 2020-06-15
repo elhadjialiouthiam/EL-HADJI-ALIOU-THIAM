@@ -1,3 +1,18 @@
+<?php
+session_start();
+require_once('../data/db_connect.php');
+
+    global $db;
+
+    $limit = 5;
+
+    $tab = $pdo->query("
+    SELECT * 
+    FROM Question
+    ORDER BY score DESC
+    LIMIT {$limit} 
+    ");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,8 +40,13 @@
         <div class="row">
             <div class="col-sm-3" >
                 <div class="row bg-white">
-                    <div class="col-6">avatar</div>
-                    <div class="col-6">name</div>
+                    <div class="col-6">
+                        <img src= "Images/<?php echo $_SESSION['avatar'];?>" alt="" id='output_image'>
+                    </div>
+                    <div class="col-6">
+                        <?php echo "<br>".$_SESSION['prenom'];
+                        echo "<br><br>".$_SESSION['nom']; ?>
+                    </div>
                 </div>
                 <div class="row bg-white">
                     <div class="col-12 mt-3" > 
@@ -46,7 +66,9 @@
                 </div>
             </div>
             <div class="col-sm-9 bg-white" >
-                
+                <?php 
+                    
+                ?>
             </div>
         </div>
     </div>

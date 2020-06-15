@@ -1,3 +1,17 @@
+<?php
+session_start();
+require_once('../data/db_connect.php');
+global $db;
+
+    $limit = 5;
+
+    $tab = $pdo->query("
+    SELECT * 
+    FROM Joueur
+    ORDER BY score DESC
+    LIMIT {$limit} 
+    ");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,51 +31,61 @@
             <h1 class="text-center mt-4 mb-0">LE PLAISIR DE JOUER</h1>
             </div>
         </div>
-        <div class="row bg-white">
-            <div class="col-sm-9" >
-                profile
+        <div class="row text-center"style="background-color:#C4C4C4;" >
+            <div class="col " >
+                <label class="text-center" for="">BIENVENUE SUR LA PLATEFORME DE JEU DE QUIZZ JOUER ET TESTER VOTRE NIVEAU DE CULTURE GÉNÉRALE</label>
             </div>
-            <div class="col-3 mt-3 mb-3 float-right ">
+        </div>
+        <div class="row bg-white">
+            <div class="col-8" >
+                <div class="col">
+                    <img src= "<?php echo $_SESSION['avatar'];?>" alt="" id='output_image'>
+                </div>
+                <div class="col ">
+                        <?php echo "<br><h5>".$_SESSION['prenom']."<br>".$_SESSION['nom']."</h5>";?>
+                </div> 
+            </div>
+            <div class="col-4 mt-3 mb-3 float-right ">
                 <button class="btn btn-danger "><a href="../deconnection.php"> Déconnexion</a></button>
             </div>
         </div>
-        <div class="row">
-            <div class="col-9 bg-white float-left" >
-                    question
-<br>
-
-                    dcxchknxl,
-<br>
-
-                    xc
-            </div>
-            <div class="col-3 bg-white" >
-                <table class="table table-striped table-dark float-right ">
-                    <thead>
-                        <tr>
-                        <th scope="col">Prenom</th>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Score</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <td>EL HADJI ALIOU</td>
-                        <td>THIAM</td>
-                        <td>1500</td>
-                        </tr>
-                        <tr>
-                        <td>MOMO</td>
-                        <td>SYLLA</td>
-                        <td>1300</td>
-                        </tr>
-                        <tr>
-                        <td>PREIRA</td>
-                        <td>JEANNETTE</td>
-                        <td>1000</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div class="row bg-white">
+            <div class="col bg-white">
+                    <label class="text-center mt-3 mb-0" for="">MON MEILLEUR SCORE</label>
+                    <?php
+                        if ($donnees['login']=$_SESSION['login']) {
+                            echo $donnees['score'];
+                        }
+                    ?>
+                </div>
+            <div class="cols bg-white">
+                <label class="text-center mt-3 mb-0" for="">TOP SCORE</label>
+                    <table class="table ">
+                        <thead class="thead-light">
+                            <tr>
+                            <th scope="col">PRENOM</th>
+                            <th scope="col">NOM</th>
+                            <th scope="col">SCORE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                                <?php 
+                                while ($donnees = $tab->fetch()){
+                                echo "<tr>";
+                                echo "<td>".$donnees['prenom']."</td>";
+                                echo "<td>".$donnees['nom']."</td>" ;
+                                echo "<td>".$donnees['score']."</td>" ;
+                                echo "</tr>";
+                                }
+                                ?> 
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+        <div class="row bg-white">
+            <div class="cols bg-white " >
+            <label for="">Quelle est la première école de codage gratuiteau Sénégal</label>
             </div>
         </div>
     </div>

@@ -32,7 +32,7 @@ try{
       $pss = $de['password'];
       $fname = $de['nom'];
       $lname = $de['prenom'];
-      $photo = $de['photo'];
+      $photo = $de['avatar'];
 
 //verification des donnees :on verifie si les entrees correspondent aux  données dans la base
       if($login==$usr && $password==$pss)
@@ -40,7 +40,7 @@ try{
 
         $_SESSION['login'] = $usr;
         $_SESSION['password'] = $pss;
-        $_SESSION['nom'] = $fnom;
+        $_SESSION['nom'] = $fname;
         $_SESSION['prenom'] = $lname;
         $_SESSION['avatar'] = $photo;
 
@@ -62,7 +62,7 @@ try{
       {
         $_SESSION['login'] = $usr;
         $_SESSION['password'] = $pss;
-        $_SESSION['nom'] = $fnom;
+        $_SESSION['nom'] = $fname;
         $_SESSION['prenom'] = $lname;
         $_SESSION['avatar'] = $photo;
 

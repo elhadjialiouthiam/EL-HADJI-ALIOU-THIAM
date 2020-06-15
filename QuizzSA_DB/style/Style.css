@@ -4,13 +4,14 @@ body{
     background-size:cover;
 }
 #output{
-    margin-right: 50px;
-    margin-top: -400px;
-    float: right;
     width: 200px;
     height: 200px;
     border-radius: 50%;
 }
-.ava{
-    margin-left: 30px;
+#output_image{
+    float: left;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+   
 }
